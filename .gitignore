@@ -1,0 +1,19 @@
+# 隐私文件（绝不提交）
+config.local.json
+browser_profile/
+logs/
+screenshots/
+latest_status.json
+
+# 一次性调试脚本（含特定会话信息，仅本地保留）
+tools_analyze_probe*.py
+
+# 环境与缓存
+.venv/
+.playwright-browsers/
+wheels/
+.pip-cache/
+.tmp/
+__pycache__/
+*.pyc
+.running.lock

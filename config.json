@@ -1,0 +1,9 @@
+{
+  "friend_name": "改成你要续火花的好友昵称",
+  "message": "改成你想每天发送的话",
+  "random_delay_minutes": 55,
+  "browser": "edge",
+  "headless": false,
+  "max_attempts": 3,
+  "typing_delay_ms": 120
+}
