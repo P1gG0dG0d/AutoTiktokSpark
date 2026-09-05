@@ -1,19 +1,16 @@
 @echo off
-chcp 65001 >nul
+title ÉèÖÃµçÄÔÓÀ²»Ë¯Ãß
 echo ============================================
-echo   è®¾ç½®ç”µè„‘æ°¸ä¸ç¡çœ ï¼ˆå±å¹•ä»å¯è‡ªåŠ¨å…³é—­ï¼‰
-echo   ä¼šå¼¹å‡º"æ˜¯å¦å…è®¸"çª—å£ï¼Œè¯·ç‚¹"æ˜¯"
-echo   åªéœ€è¦è¿è¡Œè¿™ä¸€æ¬¡ï¼
+echo   ÉèÖÃµçÄÔÓÀ²»Ë¯Ãß£¨ÆÁÄ»ÈÔ¿É×Ô¶¯¹Ø±Õ£©
+echo   »áµ¯³ö"ÊÇ·ñÔÊĞí"´°¿Ú£¬Çëµã"ÊÇ"
+echo   Ö»ĞèÒªÔËĞĞÕâÒ»´Î£¡
 echo ============================================
 echo.
-
-powershell -Command "Start-Process cmd -Verb RunAs -ArgumentList '/c powercfg /change standby-timeout-ac 0 & powercfg /change standby-timeout-dc 0 & powercfg /change hibernate-timeout-ac 0 & echo è®¾ç½®å®Œæˆï¼& timeout /t 3'"
-
+powershell -Command "Start-Process cmd -Verb RunAs -ArgumentList '/c powercfg /change standby-timeout-ac 0 & powercfg /change standby-timeout-dc 0 & powercfg /change hibernate-timeout-ac 0 & echo ÉèÖÃÍê³É£¡& timeout /t 3'"
 if %errorlevel% equ 0 (
-    echo âœ… å·²æäº¤è®¾ç½®ï¼šç”µè„‘æ°¸ä¸ç¡çœ /æ°¸ä¸ä¼‘çœ 
-    echo    ï¼ˆå±å¹•è‡ªåŠ¨å…³é—­ä¸å½±å“ä»»åŠ¡è¿è¡Œï¼‰
+    echo ÒÑÌá½»ÉèÖÃ£ºµçÄÔÓÀ²»Ë¯Ãß/ÓÀ²»ĞİÃß
 ) else (
-    echo âŒ ä½ ç‚¹äº†"å¦"ï¼Œæ²¡æœ‰è®¾ç½®æˆåŠŸï¼Œå¯ä»¥ç¨åå†è¿è¡Œä¸€æ¬¡ã€‚
+    echo ÄãµãÁË"·ñ"£¬Ã»ÓĞÉèÖÃ³É¹¦£¬¿ÉÒÔÉÔºóÔÙÔËĞĞÒ»´Î¡£
 )
 echo.
 pause

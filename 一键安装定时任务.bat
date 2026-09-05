@@ -1,25 +1,21 @@
 @echo off
-chcp 65001 >nul
+title ¶¶ÒôĞø»ğ»¨ - °²×°¶¨Ê±ÈÎÎñ
 echo ============================================
-echo   ä¸€é”®å®‰è£…å®šæ—¶ä»»åŠ¡ï¼ˆæ¯æ™š 20:00 è‡ªåŠ¨ç»­ç«èŠ±ï¼‰
-echo   åªéœ€è¦è¿è¡Œè¿™ä¸€æ¬¡ï¼
+echo   Ò»¼ü°²×°¶¨Ê±ÈÎÎñ£¨Ã¿Íí 20:00 ×Ô¶¯Ğø»ğ»¨£©
+echo   ±Ê¼Ç±¾ÓÑºÃ£ºÓÃµç³ØÒ²ÔËĞĞ¡¢´í¹ı×Ô¶¯²¹ÅÜ
+echo   Ö»ĞèÒªÔËĞĞÕâÒ»´Î£¡
 echo ============================================
 echo.
 
-schtasks /create /tn "AutoTiktokSpark_Huohua" /tr "D:\Projects\AutoTiktokSpark\run_daily.bat" /sc daily /st 20:00 /f
+powershell -NoProfile -Command "$a = New-ScheduledTaskAction -Execute 'D:\Projects\AutoTiktokSpark\run_daily.bat' -WorkingDirectory 'D:\Projects\AutoTiktokSpark'; $t = New-ScheduledTaskTrigger -Daily -At 20:00; $s = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable -WakeToRun -ExecutionTimeLimit (New-TimeSpan -Hours 2); Register-ScheduledTask -TaskName 'AutoTiktokSpark_Huohua' -Action $a -Trigger $t -Settings $s -Force | Out-Null; if ($?) { Write-Host OK } else { exit 1 }"
 
 if %errorlevel% equ 0 (
     echo.
-    echo âœ… å®šæ—¶ä»»åŠ¡å®‰è£…æˆåŠŸï¼
-    echo    ä»»åŠ¡å: AutoTiktokSpark_Huohua
-    echo    æ—¶é—´:   æ¯å¤© 20:00 è‡ªåŠ¨å¼€å§‹ï¼ˆéšæœºå»¶è¿Ÿåå‘é€ï¼‰
+    echo °²×°³É¹¦£¡ÈÎÎñÃû: AutoTiktokSpark_Huohua
+    echo Ê±¼ä: Ã¿Ìì 20:00 ×Ô¶¯¿ªÊ¼£¨Ëæ»úÑÓ³Ùºó·¢ËÍ£©
 ) else (
     echo.
-    echo âŒ å®‰è£…å¤±è´¥ï¼Œé”™è¯¯ç  %errorlevel%
-    echo    è¯·æˆªå›¾é»‘çª—å£å†…å®¹ï¼Œè”ç³»åŠ©æ‰‹æ’æŸ¥ã€‚
+    echo °²×°Ê§°Ü£¬Çë½ØÍ¼±¾´°¿ÚÁªÏµÖúÊÖÅÅ²é¡£
 )
-echo.
-echo å·²æœ‰çš„åŒåä»»åŠ¡ä¿¡æ¯ï¼š
-schtasks /query /tn "AutoTiktokSpark_Huohua"
 echo.
 pause

@@ -60,14 +60,21 @@ python -m pip install --target .venv\Lib\site-packages playwright
 
 ### 6. 设定每日自动运行
 
-双击 `一键安装定时任务.bat`（本质是注册 Windows 计划任务，每天 20:00 触发）：
+双击 `一键安装定时任务.bat`（注册 Windows 计划任务，每天 20:00 触发）。
+它采用**电池友好**的注册方式——笔记本拔掉电源也按时运行、错过时间开机自动补跑：
 
 ```powershell
-schtasks /create /tn "AutoTiktokSpark_Huohua" ^
-  /tr "D:\你的项目路径\run_daily.bat" /sc daily /st 20:00
+$action   = New-ScheduledTaskAction -Execute '<项目路径>\run_daily.bat' -WorkingDirectory '<项目路径>'
+$trigger  = New-ScheduledTaskTrigger -Daily -At 20:00
+$settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries `
+  -StartWhenAvailable -WakeToRun -ExecutionTimeLimit (New-TimeSpan -Hours 2)
+Register-ScheduledTask -TaskName 'AutoTiktokSpark_Huohua' -Action $action -Trigger $trigger -Settings $settings -Force
 ```
 
-再双击 `设置电脑永不睡眠.bat`，保证晚上电脑不睡觉（锁屏不影响运行）。
+> ⚠️ 不要用 `schtasks /create` 注册本任务：它默认"仅交流电时启动"，
+> 笔记本用电池时任务会被静默跳过。
+
+再双击 `设置电脑永不睡眠.bat`，保证晚上电脑不睡觉（锁屏、合盖均不影响运行）。
 
 ## 📖 使用与维护
 

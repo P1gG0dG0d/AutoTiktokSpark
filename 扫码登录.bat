@@ -1,12 +1,12 @@
 @echo off
-chcp 65001 >nul
-set PYTHONIOENCODING=utf-8
+title ¶¶ÒôÐø»ð»¨ - É¨ÂëµÇÂ¼
 cd /d D:\Projects\AutoTiktokSpark
+set PYTHONIOENCODING=utf-8
 echo ============================================
-echo   æŠ–éŸ³ç»­ç«èŠ± - æ‰«ç ç™»å½•ï¼ˆä¸€æ¬¡æ€§æ“ä½œï¼‰
-echo   æµè§ˆå™¨å³å°†æ‰“å¼€ï¼Œè¯·ç”¨æ‰‹æœºæŠ–éŸ³æ‰«ç 
+echo   ¶¶ÒôÐø»ð»¨ - É¨ÂëµÇÂ¼£¨Ò»´ÎÐÔ²Ù×÷£©
+echo   ä¯ÀÀÆ÷¼´½«´ò¿ª£¬ÇëÓÃÊÖ»ú¶¶ÒôÉ¨Âë
 echo ============================================
 ".venv\Scripts\python.exe" huohua.py --login
 echo.
-echo å·²ç»“æŸã€‚çª—å£å¯ä»¥å…³é—­ã€‚
+echo ÒÑ½áÊø£¬´°¿Ú¿ÉÒÔ¹Ø±Õ¡£
 pause
